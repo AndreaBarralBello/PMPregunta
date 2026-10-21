@@ -2,20 +2,19 @@ package com.example.preguntas;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class activity_segunda extends AppCompatActivity {
+public class SegundaActivity extends AppCompatActivity {
+
+    //La lista de preguntas y sus respuestas las necesito para segunda y tercera activity
+    //por eso public static
+    public static List<Pregunta> listaPreguntas = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +25,7 @@ public class activity_segunda extends AppCompatActivity {
 
 
             //Meto las preguntas de manera manual con las respuestas, además de la respuesta correcta
-            List<Pregunta> listaPreguntas = new ArrayList<>();
+
 
             listaPreguntas.add(new Pregunta(
                     "¿Cuál es la velocidad genérica máxima permitida para turismos en vías urbanas" +
