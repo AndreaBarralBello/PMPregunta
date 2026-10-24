@@ -1,5 +1,6 @@
 package com.example.preguntas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -139,5 +140,19 @@ public class SegundaActivity extends AppCompatActivity {
 
         Log.d("tamaño", "lista"+listaPreguntas.size());
 
+
+
+        }
+
+        @Override
+    protected void onResume(){
+        super.onResume();
+
+        //Al volver de la tercera pantalla, le decimos al recycleview los datos que han cambiado
+
+            RecyclerView rvPreguntas = findViewById(R.id.rvPreguntas);
+            if(rvPreguntas != null && rvPreguntas.getAdapter() != null){
+                rvPreguntas.getAdapter().notifyDataSetChanged();
+            }
         }
     }

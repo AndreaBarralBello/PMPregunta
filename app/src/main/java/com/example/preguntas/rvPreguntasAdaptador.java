@@ -1,5 +1,7 @@
 package com.example.preguntas;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +50,20 @@ public class rvPreguntasAdaptador extends RecyclerView.Adapter <rvPreguntasAdapt
         }else {
             holder.ivEstado.setImageResource(R.drawable.respuestaincorrecta);
         }
+
+        //Ahora, cuando pulsemos cualquier fila, abrimos la tercera activity, en esta posición
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(holder.itemView.getContext(), TerceraActivity.class);
+                intent.putExtra("posicion", holder.getAbsoluteAdapterPosition());
+                holder.itemView.getContext().startActivity(intent);
+
+                Log.i("andrea", "posicion al pulsar"+holder.getAbsoluteAdapterPosition());
+                Log.i("andrea", "enunciado pregunta"+pregunta.getEnunciadoPregunta());
+            }
+        });
     }
 
     //Devulve la cantidad de items(preguntas)
@@ -66,6 +82,10 @@ public class rvPreguntasAdaptador extends RecyclerView.Adapter <rvPreguntasAdapt
             txtPregunta = itemView.findViewById(R.id.txtPregunta);
             ivEstado = itemView.findViewById(R.id.ivEstado);
         }
+
+        
     }
+    
+   
 
 }
